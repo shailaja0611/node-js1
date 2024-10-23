@@ -36,28 +36,42 @@
 // sayHi(peter)
 
 
+// const express = require('express');
+// const app = express();
+// const port = 3000;
+
+// // Define a route to handle GET requests
+// app.get('/search', (req, res) => {
+//     // Access query parameters
+//     const { q, page = 1, limit = 10 } = req.query; // Default values for page and limit
+
+//     // Simulate a search operation (for demonstration purposes)
+//     const results = {
+//         query: q,
+//         page: page,
+//         limit: limit,
+//         items: [], 
+//     };
+
+//     // Send response
+//     res.json(results);
+// });
+
+// // Start the server
+// app.listen(port, () => {
+//     console.log(`Server is running at http://localhost:${port}`);
+// });
+
+
 const express = require('express');
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
-// Define a route to handle GET requests
-app.get('/search', (req, res) => {
-    // Access query parameters
-    const { q, page = 1, limit = 10 } = req.query; // Default values for page and limit
-
-    // Simulate a search operation (for demonstration purposes)
-    const results = {
-        query: q,
-        page: page,
-        limit: limit,
-        items: [], // Replace this with actual search results
-    };
-
-    // Send response
-    res.json(results);
+app.get('/', (req, res) => {
+    const quote = "The only way to do great work is to love what you do. - Steve Jobs";
+    res.send(`Hello, World!<br>${quote}`);
 });
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/`);
 });
